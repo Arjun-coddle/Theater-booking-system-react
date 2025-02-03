@@ -7,3 +7,7 @@ declare module 'web-vitals' {
     export function getTTFB(onReport: ReportHandler): void;
     export function getFCP(onReport: ReportHandler): void;
 }
+declare module "*.png" {
+    const value: string;
+    export default value;
+}

@@ -4,12 +4,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 15px;
 }
 .container{
     width: 500px;
     height: auto;
     box-shadow: 0px 0px 6px #807d7d;
     border-radius: 8px;
+    /* background-color: rgba(39, 77, 250, 0.459); */
 }
 .head{
     position: relative;
@@ -28,11 +30,19 @@ p{
     font-family: sans-serif;
     font-size: 12px;
 }
-.head img{
+.logo-app{
+    height: 300px;
+    margin: auto;
+}
+.close-btn{
     height: 30px;
     position: absolute;
-    right: 12px;
+    right: 23px;
     top: 23px;
+    cursor: pointer;
+}
+.close-btn:hover{
+    border: 1px solid rgba(85, 80, 80, 0.473);
 }
 .label-login{
     width: 100%;
@@ -43,12 +53,13 @@ p{
     border-right: navajowhite;
     outline: none;
     border-bottom: 1px solid #827c7c;
+    background-color: transparent;
 }
 form{
     padding: 30px 32px 45px;
     display: grid;
 }
-button{
+.submit-btn{
     height: 40px;
     width: 85%;
     margin: auto;
@@ -59,10 +70,19 @@ button{
     border: none;
     cursor: pointer;
 }
-button:hover{
+.submit-btn:active{
     background-color: rgb(16, 99, 16);
 }
 .signin-link{
     text-align: center;
     padding: 12px
+}
+.signin-link a{
+    color: blue;
+    font-weight: 400;
+}
+.err-msg{
+    color: red;
+    position: relative;
+    bottom: 13px;
 }
