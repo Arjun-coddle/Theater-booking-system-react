@@ -1,0 +1,59 @@
+.movie-card {
+    border: 1px solid #00000054;
+    width: 250px;
+    padding: 12px 15px;
+    border-radius: 8px;
+}
+
+.movielist-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 10px 40px;
+}
+
+.movie-poster {
+    width: 100%;
+    height: 300px;
+}
+
+.movie-poster img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    transition: 1s;
+}
+.movie-poster img:hover {
+    object-fit: cover;
+    border-radius: 8px;
+}
+.movie-deatiles h2{
+    cursor: pointer;
+}
+
+.filter-container {
+    width: 30%;
+}
+
+.movies-list {
+    width: 70%;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.movie-deatiles{
+    padding: 10px 0
+}
+.filter{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: sticky;
+    top: 90px;
+}
+.filter select{
+    width: 80%;
+    padding: 10px 8px;
+    border: none;
+    outline: none;
+}

@@ -5,6 +5,8 @@ import Home from "./Pages/Home";
 import { useContext } from "react";
 import { SecureRoute } from "./Context/SecureRoute";
 import "./App.css";
+import Movies from "./Pages/Movies";
+import ViewMovieDeatiles from "./Pages/ViewMovieDeatiles";
 
 const App: React.FC = () => {
   const context = useContext(SecureRoute);
@@ -20,6 +22,8 @@ const App: React.FC = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<Login />} />
           <Route path="/home" element={state.user ? <Home /> : <Login />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/view/:id" element={<ViewMovieDeatiles />} />
         </Routes>
       </Router>
     </div>

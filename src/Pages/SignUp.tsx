@@ -1,112 +1,115 @@
-import { default as axios } from 'axios';
-import { useState } from 'react'
-import logo from '../Images/logo2.png'
-import '../Styles/signup.css'
+import axios from 'axios';
+import { useState } from 'react';
+import '../Styles/signup.css';
 
-interface validation {
-  username: string;
-  password: string;
-  email: string
+interface ValidationErrors {
+  username?: string;
+  password?: string;
+  email?: string;
 }
 
-function SignUp() {
+const SignUp: React.FC = () => {
+  const [username, setUsername] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [errors, setErrors] = useState<ValidationErrors>({});
 
-  const [username, setUsername] = useState<string>();
-  const [email, setEmail] = useState<string>();
-  const [password, setPassword] = useState<string>();
-  const [err, setErr] = useState<validation>(() => ({} as validation));
-  const obj = {} as validation;
+  const enterPasswordMessage:string = process.env.REACT_APP_ENTER_PASSWORD ?? 'Please enter a password';
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const newErrors: ValidationErrors = {};
 
-    if (!username || !email || !password) {
-      if (!username) {
-        obj.username = 'Please enter name';
-      }
-      if (!email) {
-        obj.email = 'Please enter name'
-      }
-      if (!password) {
-        obj.password = 'Please enter name'
-      }
-      setErr(obj);
+    if (!username) {
+      newErrors.username = 'Please enter your name';
     }
-    else {
-      axios.post('http://localhost:3003/signup', { email, password, username })
-        .then(result => {
-          console.log(result);
-          alert(`Sign up completed ${username}`);
-          setUsername('');
-          setPassword('');
-          setEmail('');
-        })
-        .catch(err => {
-          console.log(err)
-          alert("Something went wrong. Please try again.");
-        })
+    if (!email) {
+      newErrors.email = 'Please enter your email';
+    }
+    if (!password) {
+      newErrors.password = enterPasswordMessage;
     }
 
-  }
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    try {
+      const response = await axios.post('http://localhost:3003/signup', { email, password, username });
+      console.log(response);
+      alert(`Sign up completed for ${username}`);
+      setUsername('');
+      setEmail('');
+      setPassword('');
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Please try again.");
+    }
+  };
 
   return (
-    <>
-      <div className='main'>
-        <div className="container">
-          <div className="head">
+    <div className='main'>
+      <div className="container">
+        <div className="head">
+          <h1>Create your account</h1>
+          <p>It's quick and easy</p>
+        </div>
+        <hr />
+        <div className="form-container">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor='username'>Name:</label>
+            <input
+              className='label-login'
+              id='username'
+              type="text"
+              placeholder='Enter your name'
+              value={username}
+              onChange={(e) => {
+                setUsername(e.target.value);
+                setErrors(prev => ({ ...prev, username: undefined }));
+              }}
+            /> <br />
+            {errors.username && <span className='err-msg'>{errors.username}</span>}
             
-            <h1>Create your account</h1>
-            <p>It's quick and easy</p>
-            {/* <img className='close-btn' src="https://cdn2.iconfinder.com/data/icons/media-controls-5/100/close-1024.png" alt="close button" /> */}
-          </div>
-          <hr />
-          <div className="form-container">
-            <form>
-              <label htmlFor='username'>Name :</label>
-              <input
-                className='label-login'
-                id='username'
-                type="text" placeholder='Enter your name'
-                onChange={(e) => {
-                  setUsername(e.target.value)
-                  setErr({ ...err, username: '' })
-                }}
-              /><br />
-              {err?.username && <span className='err-msg'>Please enter name</span>}
-              <label htmlFor="email">Email :</label>
-              <input
-                id='email'
-                className='label-login'
-                type="text"
-                placeholder='Enter your email'
-                onChange={(e) => {
-                  setEmail(e.target.value)
-                  setErr({ ...err, email: '' })
-                }}
-              /><br />
-              {err?.email && <span className='err-msg'>Please enter email</span>}
-              <label htmlFor="password">Password :</label>
-              <input
-                id='password'
-                className='label-login'
-                type="password"
-                placeholder='Enter password'
-                onChange={(e) => {
-                  setPassword(e.target.value)
-                  setErr({ ...err, password: '' })
-                }}
-              /><br />
-              {err?.password && <span className='err-msg'>Please enter password</span>}
-              <div className='signin-link'>
-                <p>Already an account? <a href="/">Sign in</a></p>
-              </div>
-              <button onClick={handleSubmit} className='submit-btn'>Submit</button>
-            </form>
-          </div>
+            <label htmlFor="email">Email:</label>
+            <input
+              id='email'
+              className='label-login'
+              type="email"
+              placeholder='Enter your email'
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setErrors(prev => ({ ...prev, email: undefined }));
+              }}
+            /> <br />
+            {errors.email && <span className='err-msg'>{errors.email}</span>}
+            
+            <label htmlFor="password">Password:</label>
+            <input
+              id='password'
+              className='label-login'
+              type="password"
+              placeholder='Enter password'
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setErrors(prev => ({ ...prev, password: undefined }));
+              }}
+            /> <br />
+            {errors.password && <span className='err-msg'>{errors.password}</span>}
+            
+            <div className='signin-link'>
+              <p>Already have an account? <a href="/">Sign in</a></p>
+            </div>
+            
+            <button type="submit" className='submit-btn'>Submit</button>
+          </form>
         </div>
       </div>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default SignUp
+export default SignUp;

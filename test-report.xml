@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Pages\Home.test.tsx">
+    <testCase name="Home Component renders the Home component with a default welcome message when no username is in localStorage" duration="46">
+      <failure message="TypeError: expect(...).toBeInTheDocument is not a function"><![CDATA[TypeError: expect(...).toBeInTheDocument is not a function
+    at Object.toBeInTheDocument (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Pages\Home.test.tsx:44:55)
+    at Promise.then.completed (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-runner\build\testWorker.js:106:12)]]></failure>
+    </testCase>
+    <testCase name="Home Component renders the Home component with the correct welcome message when a username is in localStorage" duration="7"/>
+    <testCase name="Home Component renders the &quot;Welcome to MovieMatic&quot; heading" duration="6"/>
+    <testCase name="Home Component renders the Header component" duration="5"/>
+    <testCase name="Home Component renders the Footer component" duration="12"/>
+  </file>
+  <file path="C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Pages\SignUp.test.tsx">
+    <testCase name="SignUp Component renders the form correctly" duration="78"/>
+    <testCase name="SignUp Component shows validation errors when fields are empty" duration="60"/>
+    <testCase name="SignUp Component allows input changes" duration="15"/>
+    <testCase name="SignUp Component submits form successfully" duration="114"/>
+    <testCase name="handles API error gracefully" duration="91"/>
+  </file>
+</testExecutions>

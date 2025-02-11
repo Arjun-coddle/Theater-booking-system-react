@@ -1,0 +1,61 @@
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import '@testing-library/jest-dom'
+import Login from "./Login";
+
+describe("Login Component", () => {
+
+  test("User intraction",()=>{
+    render(<Login/>);
+    expect(screen.getByTestId('span')).toBeInTheDocument();
+  })
+
+
+
+//   test("should show validation error if email or password is empty", () => {
+//     component.handleSubmit({ preventDefault: jest.fn() } as any);
+
+//     expect(component.state.err).toEqual({
+//         email: "Please enter email",
+//         password: "Please enter a password",
+//     });
+// });
+
+  // test("should call axios.post on form submission", async () => {
+  //   (axios.post as jest.Mock).mockResolvedValue({
+  //     data: { success: true, token: "testToken", data: { username: "testUser" } },
+  //   });
+
+  //   component.setState({ email: "test@example.com", password: "password123" });
+
+  //   await component.handleSubmit({ preventDefault: jest.fn() } as any);
+
+  //   expect(axios.post).toHaveBeenCalledWith("http://localhost:3003/signin", {
+  //     email: "test@example.com",
+  //     password: "password123",
+  //   });
+  // });
+
+  // test("should handle successful login", async () => {
+  //   (axios.post as jest.Mock).mockResolvedValue({
+  //     data: { success: true, token: "testToken", data: { username: "testUser" } },
+  //   });
+
+  //   await component.handleSubmit({ preventDefault: jest.fn() } as any);
+
+  //   expect(mockDispatch).toHaveBeenCalledWith({
+  //     type: "LOGIN",
+  //     payload: "testToken",
+  //   });
+  //   expect(localStorage.setItem).toHaveBeenCalledWith("username", "testUser");
+  //   expect(localStorage.setItem).toHaveBeenCalledWith("token", "testToken");
+  //   expect(window.alert).toHaveBeenCalledWith("Welcome to MovieMatic");
+  // });
+
+  // test("should handle login failure", async () => {
+  //   (axios.post as jest.Mock).mockRejectedValue(new Error("Login failed"));
+
+  //   await component.handleSubmit({ preventDefault: jest.fn() } as any);
+
+  //   expect(window.alert).toHaveBeenCalledWith("Incorrect username or password.");
+  // });
+});

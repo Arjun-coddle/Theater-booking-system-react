@@ -2,7 +2,6 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SecureRoute } from "../Context/SecureRoute";
-import logo from '../Images/logo2.png'
 import "../Styles/login.css";
 
 interface Validation {
@@ -14,6 +13,8 @@ const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [err, setErr] = useState<Validation>({});
+
+  const enterPasswordMessage = process.env.REACT_APP_ENTER_PASSWORD ?? 'Please enter a password';
 
   const context = useContext(SecureRoute);
   if (!context) {
@@ -28,7 +29,7 @@ const Login = () => {
 
     const errors: Validation = {};
     if (!email) errors.email = "Please enter email";
-    if (!password) errors.password = "Please enter password";
+    if (!password) errors.password = enterPasswordMessage;
 
     if (Object.keys(errors).length > 0) {
       setErr(errors);
@@ -62,7 +63,7 @@ const Login = () => {
       <div className="container">
         <div className="login-head">
           <div className="login-logo">
-            <img src={logo} alt="app-logo" />
+            <img src="/Images/logo2.png" alt="app-logo" />
           </div>
           <h1>Welcome Back</h1>
           <p>Please enter your details</p>
