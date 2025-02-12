@@ -1,0 +1,283 @@
+header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    padding: 0 50px;
+    border-bottom: 1px solid #00000069;
+    position: sticky;
+    top: 0;
+    background-color: whitesmoke;
+    z-index: 8;
+}
+
+.logo img {
+    height: 150px;
+    object-fit: cover;
+}
+
+.logo {
+    width: 20%;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.head-contents {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head-pages a:hover {
+    text-decoration: underline;
+    color: rgb(43, 45, 134);
+}
+
+.menu-bar {
+    display: none;
+}
+
+.head-pages a {
+    color: black;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.logout-button {
+    border: 1px solid red;
+    padding: 10px;
+    color: red;
+    border-radius: 7px;
+    font-weight: 600;
+    cursor: pointer;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout-button:hover {
+    background-color: rgba(255, 57, 57, 0.952);
+    color: white;
+}
+
+.wellcome-msg {
+    padding: 60px 90px;
+    line-height: 48px;
+}
+
+.wellcome-msg h1 {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.wellcome-msg h2 {
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.head-pages {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.searchBar-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.head-buttons {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar {
+    width: 100%;
+    margin: 0 15px;
+    height: 35px;
+    border: 1px solid #0000005c;
+    padding: 0 0 0 40px;
+    outline: none;
+    border-radius: 6px
+}
+
+.searchBar-container img {
+    position: absolute;
+    width: 20px;
+    top: 7px;
+    left: 24px;
+    opacity: 0.6;
+}
+
+.footer-mobile {
+    display: none;
+}
+
+@media (min-width: 770px) and (max-width: 1024px) {
+    header {
+        height: 55px;
+    }
+
+    .logo {
+        height: 60px;
+    }
+
+    .logo img {
+        height: 88px;
+    }
+
+    .head-pages a {
+        font-size: 11px;
+    }
+
+    .logout-button {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 435px) and (max-width: 769px) {
+    .head-pages {
+        display: none;
+    }
+
+    header {
+        padding: 0 30px;
+        gap: 10px;
+    }
+
+    .head-buttons {
+        justify-content: start;
+    }
+
+    .logo {
+        height: 80px;
+        width: 30%;
+    }
+
+    .logo img {
+        height: 90px;
+    }
+
+    .logout-button {
+        display: none;
+    }
+
+    .searchBar-container {
+        width: 90%;
+    }
+
+    .menu-bar {
+        display: block;
+        height: 25px;
+        opacity: 0.8;
+    }
+
+    .wellcome-msg {
+        padding: 42px 18px;
+        line-height: 43px;
+    }
+
+    .footer-mobile {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        height: 55px;
+        box-shadow: 0px 4px 14px 1px black;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        font-size: 12px;
+        background: aliceblue;
+        position: fixed;
+        bottom: 0;
+    }
+}
+
+@media (max-width:435px) {
+    .head-pages {
+        display: none;
+    }
+
+    header {
+        padding: 0 25px;
+        height: 50px;
+    }
+
+    .head-buttons {
+        justify-content: center;
+    }
+
+    .logo {
+        height: 60px;
+    }
+
+    .logo img {
+        height: 90px;
+    }
+
+    .logout-button {
+        display: none;
+    }
+
+    .searchBar-container {
+        width: 90%;
+    }
+
+    .menu-bar {
+        display: block;
+        height: 23px;
+        opacity: 0.8;
+    }
+
+    .search-bar {
+        display: none;
+    }
+
+    .searchBar-container img {
+        display: none;
+    }
+
+    header {
+        padding: 0 10px 0 44px;
+    }
+
+    .wellcome-msg {
+        padding: 45px 18px;
+        line-height: 35px;
+    }
+
+    .wellcome-msg h1 {
+        font-size: 35px;
+    }
+
+    .wellcome-msg h2 {
+        font-size: 24px;
+    }
+
+    .footer-mobile {
+        display: block;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        height: 55px;
+        box-shadow: 0px 4px 14px 1px black;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        font-size: 12px;
+        background: aliceblue;
+        position: fixed;
+        bottom: 0;
+    }
+}

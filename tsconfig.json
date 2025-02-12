@@ -1,15 +1,22 @@
 {
     "compilerOptions": {
-        "target": "ES6",
-        "module": "ESNext",
+        "target": "ES5",
+        "module": "CommonJS",
+        "lib": ["ES2015", "DOM"],
         "moduleResolution": "node",
         "jsx": "react-jsx",
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "types": [
+            "jest",
+            "node"
+        ]
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        ".eslintrc.js",
+        "jest.config.js"
     ]
 }

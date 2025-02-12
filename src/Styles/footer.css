@@ -1,0 +1,43 @@
+.footer-laptop {
+    width: 100%;
+    background-color: rgb(41 40 40);
+}
+
+.content-one h2 {
+    color: #ffffffba;;
+    font-weight: 400;
+    padding: 30px 20px;
+}
+
+.footer-hr {
+    border: 1px solid rgb(146, 145, 145);
+    margin: 0 15px;
+}
+
+.content-two {
+    color: #5c5959;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.content-three img {
+    height: 35px;
+}
+
+.content-three {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    padding: 30px 0;
+}
+
+.content-four {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #ffffff59;
+    padding: 0 0 30px;
+}
