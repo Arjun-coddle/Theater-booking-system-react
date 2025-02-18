@@ -1,45 +1,17 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { ChangeEvent, useState } from "react";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
+import ListMovies from "../Components/ListMovies";
 import '../Styles/movies.css'
 
-interface Movie {
-  id: number;
-  tittle: string;
-  cast: string;
-  crew: string;
-  duration: string;
-  language: string;
-  poster: string;
-  modify: string;
-}
-
 const Movies: React.FC = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
 
-  const navigate = useNavigate();
+  const [langauge,  setLangauge] = useState<string>('');
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await axios.get("http://localhost:3003/movies");
-        console.log('API respond', response.data.data);
-        const data = response.data.data
-        setMovies(data)
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    fetchMovies();
-
-  }, []);
-
-
-  const handleMovieClick = (movieId: number) => {
-    navigate(`/view/${movieId}`)
+  const handleFilterLangauge = (e: ChangeEvent<HTMLSelectElement>) => {
+    const filteredLangauge = e.target.value
+    console.log('langauge :', filteredLangauge);
+    setLangauge(filteredLangauge)
   }
 
   return (
@@ -49,12 +21,12 @@ const Movies: React.FC = () => {
         <div className="filter-container">
           <div className="filter">
             <h1>Filter</h1>
-            <select>
-              <option>Langauges:</option>
-              <option value="malayalam">Malayalam</option>
-              <option value="hindi">Hindi</option>
-              <option value="english">English</option>
-              <option value="tamil">Tamil</option>
+            <select onChange={handleFilterLangauge}>
+              <option value=''>Langauges:</option>
+              <option value="Malayalam">Malayalam</option>
+              <option value="Hindi">Hindi</option>
+              <option value="English">English</option>
+              <option value="Tamil">Tamil</option>
             </select>
             <select>
               <option>Genres:</option>
@@ -69,21 +41,7 @@ const Movies: React.FC = () => {
           </div>
         </div>
         <div className="movies-list">
-          {movies.length > 0 ? (
-            movies.map((movie) => (
-              <div key={movie.id} className="movie-card">
-                <div className="movie-poster">
-                  <img src={movie.poster} alt='movie-poster' />
-                </div>
-                <div className="movie-deatiles">
-                  <h2 onClick={()=>handleMovieClick(movie.id)}>{movie.tittle}</h2>
-                  <p>{movie.language}</p>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p>No movies found.</p>
-          )}
+          <ListMovies langauge={langauge} />
         </div>
       </div>
       <Footer />

@@ -1,5 +1,7 @@
 import Footer from '../Components/Footer';
 import Header from '../Components/Header'
+import ListMovies from '../Components/ListMovies';
+import SlideShow from '../Components/SlideShow';
 import '../Styles/home.css'
 
 const Home = () => {
@@ -8,14 +10,24 @@ const Home = () => {
 
   return (
     <>
-      <Header/>
+      <Header />
       <section>
         <div className="wellcome-msg">
           <h1>Hello {name} </h1>
           <h2>Welcome to MovieMatic</h2>
         </div>
+        <SlideShow />
       </section>
-      <Footer/>
+      <section>
+        <div className="seeAll-btn">
+        <h2>Recommended Movies</h2>
+          <a href='/movies'>See All ▶</a>
+        </div>
+        <div className="list-movie-container">
+          <ListMovies langauge={''} />
+        </div>
+      </section>
+      <Footer />
     </>
   );
 };

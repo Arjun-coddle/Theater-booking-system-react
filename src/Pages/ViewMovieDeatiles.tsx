@@ -1,37 +1,40 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import Footer from '../Components/Footer';
 import Header from '../Components/Header';
-import '../Styles/moviedeatiles.css'
+import '../Styles/moviedeatiles.css';
+import axiosInstance from '../Utils/AxiosInstance';
 
 interface Movie {
   id: number;
-  tittle: string;
+  tittle: string; 
   cast: string;
   crew: string;
   duration: string;
   language: string;
   poster: string;
-  modify: string;
 }
 
 const ViewMovieDeatiles: React.FC = () => {
-
   const { id } = useParams<{ id: string }>();
   const [movie, setMovie] = useState<Movie | null>(null);
+  const navigate = useNavigate();
+
+  const handleBooking = (movieId: number) => {
+    navigate(`/movie/${movieId}`);
+  };
 
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const response = await axios.get(`http://localhost:3003/movie/${id}`)
-        setMovie(response.data.data)
+        const response = await axiosInstance.get(`/movie/${id}`);
+        setMovie(response.data.data);
       } catch (error) {
-        console.log(error);
+        console.error('Error fetching movie details:', error);
       }
-    }
+    };
 
-    fetchMovie()
+    fetchMovie();
   }, [id]);
 
   return (
@@ -40,7 +43,7 @@ const ViewMovieDeatiles: React.FC = () => {
       <div className="movie-details">
         <div className="movie">
           <div className="movie-image">
-            <img src={movie?.poster} alt={movie?.tittle} />
+            {movie?.poster && <img src={movie.poster} alt={movie.tittle} />} 
           </div>
           <div className="movie-deatile">
             <h2 className='viewMovie-title'>{movie?.tittle}</h2>
@@ -48,19 +51,24 @@ const ViewMovieDeatiles: React.FC = () => {
               <img src="/Images/rating.png" alt="rating" />
               <button>Rate now</button>
             </div>
-            <p><span>2D</span><span>{movie?.language}</span></p>
+            <p><span>2D</span> <span>{movie?.language}</span></p>
             <p>Duration: {movie?.duration}</p>
-            <button className='book-ticket-btn'>Book tickets</button>
+            <button 
+              onClick={() => movie && handleBooking(movie.id)} 
+              className='book-ticket-btn'
+            >
+              Book tickets
+            </button>
           </div>
         </div>
         <div className="about">
-          <p><span>Cast: </span><br /> {movie?.cast}</p>
-          <p><span>Crew:</span> <br /> {movie?.crew}</p>
+          <p><span>Cast:</span><br /> {movie?.cast}</p>
+          <p><span>Crew:</span><br /> {movie?.crew}</p>
         </div>
       </div>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default ViewMovieDeatiles
+export default ViewMovieDeatiles; 

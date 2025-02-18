@@ -23,11 +23,13 @@
     object-fit: contain;
     transition: 1s;
 }
+
 .movie-poster img:hover {
     object-fit: cover;
     border-radius: 8px;
 }
-.movie-deatiles h2{
+
+.movie-deatiles h2 {
     cursor: pointer;
 }
 
@@ -41,19 +43,52 @@
     gap: 15px;
     flex-wrap: wrap;
 }
-.movie-deatiles{
+
+.movie-deatiles {
     padding: 10px 0
 }
-.filter{
+
+.filter {
     display: flex;
     flex-direction: column;
     gap: 8px;
     position: sticky;
     top: 90px;
 }
-.filter select{
+
+.filter select {
     width: 80%;
     padding: 10px 8px;
     border: none;
     outline: none;
+}
+
+@media (max-width:435px) {
+    .movielist-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px 10px 40px;
+    }
+
+    .filter-container {
+        width: 100%;
+        position: sticky;
+        top: 40px;
+        background-color: whitesmoke;
+    }
+
+    .filter {
+        flex-direction: row;
+        padding: 15px 0;
+    }
+
+    .movies-list {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
 }

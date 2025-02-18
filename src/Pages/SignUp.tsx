@@ -1,6 +1,7 @@
-import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../Styles/signup.css';
+import axiosInstance from '../Utils/AxiosInstance';
 
 interface ValidationErrors {
   username?: string;
@@ -14,7 +15,9 @@ const SignUp: React.FC = () => {
   const [password, setPassword] = useState<string>('');
   const [errors, setErrors] = useState<ValidationErrors>({});
 
-  const enterPasswordMessage:string = process.env.REACT_APP_ENTER_PASSWORD ?? 'Please enter a password';
+  const navigate = useNavigate()
+
+  const enterPasswordMessage: string = process.env.REACT_APP_ENTER_PASSWORD ?? 'Please enter a password';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,12 +39,16 @@ const SignUp: React.FC = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3003/signup', { email, password, username });
+      const response = await axiosInstance.post('/signup', { email, password, username });
+
       console.log(response);
       alert(`Sign up completed for ${username}`);
       setUsername('');
       setEmail('');
       setPassword('');
+
+      navigate('/')
+
     } catch (err) {
       console.error(err);
       alert("Something went wrong. Please try again.");
@@ -71,7 +78,7 @@ const SignUp: React.FC = () => {
               }}
             /> <br />
             {errors.username && <span className='err-msg'>{errors.username}</span>}
-            
+
             <label htmlFor="email">Email:</label>
             <input
               id='email'
@@ -85,7 +92,7 @@ const SignUp: React.FC = () => {
               }}
             /> <br />
             {errors.email && <span className='err-msg'>{errors.email}</span>}
-            
+
             <label htmlFor="password">Password:</label>
             <input
               id='password'
@@ -99,11 +106,11 @@ const SignUp: React.FC = () => {
               }}
             /> <br />
             {errors.password && <span className='err-msg'>{errors.password}</span>}
-            
+
             <div className='signin-link'>
               <p>Already have an account? <a href="/">Sign in</a></p>
             </div>
-            
+
             <button type="submit" className='submit-btn'>Submit</button>
           </form>
         </div>

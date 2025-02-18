@@ -1,36 +1,14 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
-import pluginTs from "@typescript-eslint/eslint-plugin";
-import parserTs from "@typescript-eslint/parser";
+import tseslint from "typescript-eslint";
+import pluginReact from "eslint-plugin-react";
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+
+/** @type {import('eslint').Linter.Config[]} */
 export default [
-  // Define the TypeScript parser for ESLint
-  {
-    files: ["**/*.ts", "**/*.tsx"], // Apply to TypeScript files
-    languageOptions: {
-      parser: parserTs,
-      parserOptions: {
-        ecmaVersion: 2020,
-        sourceType: "module",
-      },
-      globals: globals.browser,
-    },
-    plugins: {
-      "@typescript-eslint": pluginTs,
-    },
-    rules: {
-      ...pluginTs.configs.recommended.rules, // Use recommended TypeScript rules
-      "no-unused-vars": "warn", // Keep custom rules
-      "no-undef": "warn",
-      "@typescript-eslint/no-empty-function": [
-        "error",
-        {
-          allow: ["arrowFunctions", "functions"],
-        },
-      ],
-    },
-  },
-  // Add the base recommended configuration for JavaScript
+  {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
+  {languageOptions: { globals: globals.browser }},
   pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
 ];

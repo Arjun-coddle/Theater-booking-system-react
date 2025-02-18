@@ -1,70 +1,56 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Home from '../Pages/Home';
+import { BrowserRouter } from 'react-router-dom';
+import Home from './Home';
+import '@testing-library/jest-dom';
 
-const localStorageMock = (function() {
-  let store: { [key: string]: string } = {};
-
-  return {
-    getItem: function(key: string) {
-      return store[key] || null;
-    },
-    setItem: function(key: string, value: string) {
-      store[key] = value.toString();
-    },
-    clear: function() {
-      store = {};
-    }
-  };
-})();
-
-Object.defineProperty(window, 'localStorage', {
-  value: localStorageMock
-});
-
-jest.mock('../Components/Header', () => {
-  return function MockHeader() {
-    return <header data-testid="header">Mock Header</header>;
-  };
-});
-
-jest.mock('../Components/Footer', () => {
-  return function MockFooter() {
-    return <footer data-testid="footer">Mock Footer</footer>;
-  };
-});
+jest.mock('../components/Footer', () => () => <div data-testid="footer">Footer</div>);
+jest.mock('../components/Header', () => () => <div data-testid="header">Header</div>);
+jest.mock('../components/ListMovies', () => () => <div data-testid="list-movies">ListMovies</div>);
+jest.mock('../components/SlideShow', () => () => <div data-testid="slideshow">SlideShow</div>);
 
 describe('Home Component', () => {
   beforeEach(() => {
-    localStorage.clear(); 
+    localStorage.setItem('username', 'JohnDoe');
   });
 
-  it('renders the Home component with a default welcome message when no username is in localStorage', () => {
-    render(<Home />);
-    expect(screen.getByText("Welcome to MovieMatic")).toBeInTheDocument();
+  afterEach(() => {
+    localStorage.clear();
   });
 
-  it('renders the Home component with the correct welcome message when a username is in localStorage', () => {
-    render(<Home />);
-    // const welcomeMessage = screen.getByRole('heading', { name: 'Hello TestUser' });
-    // expect(welcomeMessage).toBeInTheDocument();
+  it('renders Header, Footer, ListMovies, and SlideShow components', () => {
+    render(
+      <BrowserRouter>
+        <Home />
+      </BrowserRouter>
+    );
+
+    expect(screen.getByTestId('header')).toBeInTheDocument();
+    expect(screen.getByTestId('footer')).toBeInTheDocument();
+    expect(screen.getByTestId('list-movies')).toBeInTheDocument();
+    expect(screen.getByTestId('slideshow')).toBeInTheDocument();
   });
 
-  it('renders the "Welcome to MovieMatic" heading', () => {
-    render(<Home />);
-    // const welcomeHeading = screen.getByRole('heading', { name: 'Welcome to MovieMatic' });
-    // expect(welcomeHeading).toBeInTheDocument();
+  it('displays the welcome message with the username from localStorage', () => {
+    render(
+      <BrowserRouter>
+        <Home />
+      </BrowserRouter>
+    );
+
+    expect(screen.getByText('Hello JohnDoe')).toBeInTheDocument();
+    expect(screen.getByText('Welcome to MovieMatic')).toBeInTheDocument();
   });
 
-  it('renders the Header component', () => {
-    render(<Home />);
-    // const header = screen.getByTestId('header');
-    // expect(header).toBeInTheDocument();
-  });
+  it('has a link to see all movies', () => {
+    render(
+      <BrowserRouter>
+        <Home />
+      </BrowserRouter>
+    );
 
-  it('renders the Footer component', () => {
-    render(<Home />);
-    // const footer = screen.getByTestId('footer'); 
-    // expect(footer).toBeInTheDocument();
+    const seeAllLink = screen.getByText('See All ▶');
+    expect(seeAllLink).toBeInTheDocument();
+    expect(seeAllLink.closest('a')).toHaveAttribute('href', '/movies');
   });
 });

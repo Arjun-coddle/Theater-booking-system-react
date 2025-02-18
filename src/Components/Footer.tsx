@@ -48,7 +48,7 @@ const Footer = () => {
                     <span>events</span>
                 </div>
                 <div className="footer-profile-container">
-                    <span>profile</span>
+                    <span onClick={()=> navigate('/profile')}>profile</span>
                 </div>
             </div>
         </footer>

@@ -24,7 +24,7 @@ const Header = () => {
                     <a href="">Events</a>
                     <a href="">More...</a>
                 </div>
-                <div className="searchBar-container">
+                <div className="search-section-container">
                     <SearchBar/>
                 </div>
                 <div className="head-buttons">
