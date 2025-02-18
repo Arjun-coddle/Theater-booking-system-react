@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Context\SecureRoute.test.tsx">
+    <testCase name="renders SecureRouteProvider and handles login/logout actions" duration="83">
+      <failure message="TestingLibraryElementError: Unable to find an element with the text: Current User: null. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible."><![CDATA[TestingLibraryElementError: Unable to find an element with the text: Current User: null. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div>
+      <p>
+        Current User: 
+      </p>
+      <button>
+        Login
+      </button>
+      <button>
+        Logout
+      </button>
+    </div>
+  </div>
+</body>
+    at Object.getElementError (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\@testing-library\dom\dist\config.js:37:19)
+    at C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\@testing-library\dom\dist\query-helpers.js:76:38
+    at C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\@testing-library\dom\dist\query-helpers.js:52:17
+    at C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\@testing-library\dom\dist\query-helpers.js:95:19
+    at getByText (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Context\SecureRoute.test.tsx:28:19)
+    at call (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Context\SecureRoute.test.tsx:2:1)
+    at Generator.tryCatch (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Context\SecureRoute.test.tsx:2:1)
+    at Generator._invoke [as next] (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Context\SecureRoute.test.tsx:2:1)
+    at asyncGeneratorStep (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Context\SecureRoute.test.tsx:2:1)
+    at asyncGeneratorStep (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Context\SecureRoute.test.tsx:2:1)
+    at _next (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Context\SecureRoute.test.tsx:2:1)
+    at new Promise (<anonymous>)
+    at Object.<anonymous> (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Context\SecureRoute.test.tsx:2:1)
+    at Promise.then.completed (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\run.js:126:9)
+    at run (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\node_modules\jest-runner\build\testWorker.js:106:12)]]></failure>
+    </testCase>
+    <testCase name="initializes with token from localStorage" duration="17"/>
+  </file>
+  <file path="C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Components\ListMovies.test.tsx">
+    <testCase name="ListMovies Component renders movies correctly" duration="325"/>
+    <testCase name="ListMovies Component filters movies based on language" duration="44"/>
+    <testCase name="ListMovies Component navigates when a movie is clicked" duration="48"/>
+    <testCase name="ListMovies Component displays no movies found when list is empty" duration="80"/>
+  </file>
+  <file path="C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Components\Footer.test.tsx">
+    <testCase name="Footer Component should render footer sections correctly" duration="117"/>
+    <testCase name="Footer Component should navigate to &apos;/home&apos; when Home is clicked" duration="219"/>
+    <testCase name="Footer Component should navigate to &apos;/movies&apos; when Movies is clicked" duration="88"/>
+    <testCase name="Footer Component should not navigate when clicking on Events and Profile (since they have no navigation)" duration="162"/>
+  </file>
+  <file path="C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Pages\Home.test.tsx">
+    <testCase name="Home Component renders Header, Footer, ListMovies, and SlideShow components" duration="50"/>
+    <testCase name="Home Component displays the welcome message with the username from localStorage" duration="15"/>
+    <testCase name="Home Component has a link to see all movies" duration="36"/>
+  </file>
+  <file path="C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Components\Header.test.tsx">
+    <testCase name="Header Component should render logo, navigation links, search bar, and logout button" duration="208"/>
+    <testCase name="Header Component should call navigate on logout button click" duration="160"/>
+  </file>
+  <file path="C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Pages\ViewMovieDeatiles.test.tsx">
+    <testCase name="ViewMovieDeatiles Component renders movie details correctly" duration="198"/>
+    <testCase name="ViewMovieDeatiles Component displays error when API call fails" duration="103"/>
+  </file>
+  <file path="C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Components\SearchBar.test.tsx">
+    <testCase name="SearchBar Component renders input field correctly" duration="47"/>
+    <testCase name="SearchBar Component fetches and displays search results" duration="46"/>
+    <testCase name="SearchBar Component navigates to movie details when a suggestion is clicked" duration="63"/>
+    <testCase name="SearchBar Component clears suggestions when input is empty" duration="67"/>
+  </file>
+  <file path="C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\App.test.tsx">
+    <testCase name="Signup Route renders component on route" duration="91"/>
+  </file>
+  <file path="C:\Users\USER\Desktop\coddle\react\movieticket-booking-syatem\src\Components\SlideShow.test.tsx">
+    <testCase name="SlideShow Component renders slideshow with initial image" duration="19"/>
+    <testCase name="SlideShow Component automatically changes slides every 3 seconds" duration="7"/>
+    <testCase name="SlideShow Component navigates to the previous slide when prev button is clicked" duration="10"/>
+    <testCase name="SlideShow Component navigates to the next slide when next button is clicked" duration="4"/>
+  </file>
+</testExecutions>

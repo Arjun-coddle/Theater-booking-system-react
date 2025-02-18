@@ -1,0 +1,119 @@
+.movie {
+    width: 100%;
+    background: linear-gradient(to right, #000000 -20%, #9f0909 70%);
+    padding: 50px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.movie-image {
+    width: 30%;
+    text-align: center;
+}
+
+.movie-image img {
+    width: 80%;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 0px black;
+}
+
+.movie-deatile {
+    width: 70%;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.viewMovie-title {
+    font-size: 34px;
+}
+
+.rateing {
+    width: 250px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: #a49494d1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.rateing button {
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    color: brown;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.rateing button:hover {
+    background-color: rgba(252, 249, 249, 0.671);
+}
+
+.movie-deatile span {
+    padding: 2px 10px;
+    background-color: aliceblue;
+    color: #000;
+    margin: 0 5px;
+}
+
+.book-ticket-btn {
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    color: brown;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.book-ticket-btn:hover {
+    background-color: rgba(252, 249, 249, 0.671);
+}
+
+.about {
+    width: 100%;
+    padding: 30px 50px;
+    line-height: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.about span {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+@media (min-width: 435px) and (max-width: 769px) {
+    .movie-image img {
+        width: 100%;
+    }
+
+    .movie-deatile {
+        gap: 8px;
+    }
+}
+
+@media (max-width:435px) {
+    .movie {
+        flex-direction: column;
+        padding: 25px 10px;
+    }
+
+    .movie-image {
+        width: 100%;
+    }
+
+    .movie-deatile {
+        width: 100%;
+        padding: 15px 30px;
+    }
+}
